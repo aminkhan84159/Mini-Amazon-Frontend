@@ -1,0 +1,9 @@
+@for (image of images; track $index) {
+    <img src="data:image/jpeg;base64,{{image.images}}" alt="Image">
+}
+
+
+<form>
+    <input type="file" (change)="onFileSelected($event)" multiple>
+    <button (click)="AddImage()">Add</button>
+</form>

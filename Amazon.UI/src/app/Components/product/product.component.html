@@ -1,0 +1,59 @@
+<div class="head">
+  <div class="container">
+    <mat-form-field appearance="outline" class="search">
+      <input matInput type="search" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="filterProducts($event)" name="searchText">
+      <button  matSuffix mat-icon-button aria-label="Search">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="currency">
+      <mat-label>Currency type</mat-label>
+      <mat-select name="type" [(ngModel)]="currencyType">
+        <mat-option value="INR">INR <mat-icon>currency_rupee</mat-icon></mat-option>
+        <mat-option value="USD">USD <mat-icon>currency_exchange</mat-icon></mat-option>
+        <mat-option value="PND">Pound <mat-icon>currency_pound</mat-icon></mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button class="btn" (click)="addProduct(null)" mat-stroked-button>Add Product</button>
+  </div>
+</div>
+<div class="content">
+  <div class="chips">
+  <mat-chip-set>
+    <mat-chip>Beauty</mat-chip>
+    <mat-chip>Fragrance</mat-chip>
+    <mat-chip>Furniture</mat-chip>
+    <mat-chip>Grocery</mat-chip>
+  </mat-chip-set>
+  </div>
+  <div class="card">
+
+    @for (product of products; track $index) {
+      <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title style="margin-left: -30px;font-family: 'Times New Roman', Times, serif;">{{product.title}}</mat-card-title>
+          <mat-divider></mat-divider>
+        </mat-card-header>
+        <img  src="data:image/jpeg;base64,{{ product.images[0].images }}" alt="{{product.title}}">
+        <div style="margin-left: 20px; margin-top: 30px;">{{getCurrencySymbol(currencyType)}}{{convertWithCurrencyRate(product.price, currencyType) | number:'1.2-2'}}
+        <mat-card-actions>
+          <ng-container *ngIf="isInCart(product.productId); else notInCart">
+            <button mat-mini-fab style="color: #eca200; border-radius: none; border-color: white;" (click)="removeFromCart(product.productId)">
+              <mat-icon>remove_shopping_cart</mat-icon>
+            </button>
+          </ng-container>
+          <ng-template #notInCart>
+            <button mat-mini-fab style="color: #eca200; border-radius: none; border-color: white;" (click)="addToCart(product.productId)">
+              <mat-icon>shopping_cart</mat-icon>
+            </button>
+          </ng-template>
+          <a mat-raised-button (click)="viewProduct(product.productId)">View</a>
+        </mat-card-actions>
+        </div>
+      </mat-card>
+    }
+  </div>
+</div>

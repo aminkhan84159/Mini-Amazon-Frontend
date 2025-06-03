@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.search {
+    flex: 1;
+    min-width: 300px;
+    margin-left: 10px;
+}
+
+.currency {
+    width: 180px;
+}
+
+.btn {
+    border-radius: 20px;
+    color: #eca200;
+    margin-top: -20px;
+    margin-right: 5px;
+}
+
+mat-select, mat-option, mat-label{
+    color: #eca200;
+}
+
+
+.example-card {
+  max-width: 300px;
+  height: 350px;
+  margin-bottom: 10px;
+}
+
+img{
+    width: 200px;
+    margin-left: 40px;
+}
+
+mat-card-actions{
+    margin-left: 130px;
+    margin-top: -60px;
+}
+
+mat-card-actions a{
+    color: #eca200;
+    border-radius: 20px;
+    margin: 20px;
+    padding-left: 25px;
+}
+
+mat-chip-set mat-chip{
+    background-color: #eca200;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.content{
+    width: 97%;
+    padding: 20px;
+}
+
+mat-chip-set, .chips{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

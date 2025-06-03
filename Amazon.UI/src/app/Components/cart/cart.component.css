@@ -1,0 +1,16 @@
+mat-card{
+    max-width: 1500px;
+    margin-bottom: 30px;
+    margin: 30px;
+    margin-left: 200px;
+}
+
+img{
+    width: 190px;
+}
+
+.order{
+    color: #eca200;
+    margin-left: 1150px;
+    margin-top: -30px;
+}

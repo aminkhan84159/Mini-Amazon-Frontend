@@ -1,0 +1,20 @@
+<mat-toolbar>
+  @if(loggedIn){
+  <button mat-icon-button (click)="toggleSidenav()" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon style="color: white;">menu</mat-icon>
+  </button>
+  }
+    <p style="font-family: 'Times New Roman', Times, serif;color: white;">Amazon</p>
+    <span class="example-spacer"></span>
+      <div class="topnav_link">
+        <a mat-raised-button routerLink="/"><mat-icon style="margin-left: 5px;">home</mat-icon></a>
+        <!-- <a mat-raised-button >About us</a> -->
+         @if(loggedIn){
+          <a mat-raised-button routerLink="/cart"><mat-icon style="margin-left: 5px;">shopping_cart</mat-icon></a>
+          <a mat-raised-button (click)="logout()">Logout</a>
+        }@else{
+          <a mat-raised-button routerLink="/login">Login</a>
+          <a mat-raised-button routerLink="/signup">Sign Up</a>
+        }
+      </div>
+  </mat-toolbar>

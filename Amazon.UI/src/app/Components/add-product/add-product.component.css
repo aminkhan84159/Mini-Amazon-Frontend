@@ -1,0 +1,11 @@
+form{
+    margin: 20px;
+}
+
+mat-form-field{
+    margin: 10px;
+}
+
+.btn button{
+    color: #eca200;
+}

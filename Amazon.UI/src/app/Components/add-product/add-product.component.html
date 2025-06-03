@@ -1,0 +1,82 @@
+<div class="container">
+    <form> 
+
+        <mat-form-field  appearance="outline">
+                    <mat-label>title</mat-label>
+                    <input [(ngModel)]="product.title" name="title" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="product.category" name="category" matInput>
+              <mat-option value="beauty">Beauty</mat-option>
+              <mat-option value="furniture">Furniture</mat-option>
+              <mat-option value="groceries">Grocery</mat-option>
+              <mat-option value="fragrances">Fragrance</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label >Price</mat-label>
+            <input [(ngModel)]="product.price" name="price" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >Brand</mat-label>
+            <input [(ngModel)]="product.brand" name="brand" placeholder="Optional" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >Rating</mat-label>
+            <input [(ngModel)]="product.rating" name="rating" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >Stock</mat-label>
+            <input [(ngModel)]="productDetail.stock" name="stock" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >sku</mat-label>
+            <input [(ngModel)]="productDetail.sku" name="sku" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >Weight</mat-label>
+            <input [(ngModel)]="productDetail.weight" name="weight" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >Warranty</mat-label>
+            <input [(ngModel)]="productDetail.warranty" name="warranty" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >Return Policy</mat-label>
+            <input [(ngModel)]="productDetail.returnPolicy" name="returnPolicy" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label >Discount</mat-label>
+            <input [(ngModel)]="productDetail.discount" name="discount" placeholder="Optional" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 440px;">
+            <mat-label>Description</mat-label>
+            <textarea [(ngModel)]="productDetail.description"  name="discription" matInput></textarea>
+        </mat-form-field>
+
+        @if(!exist){
+        <input type="file" (change)="onFileSelected($event)" multiple placeholder="Add Images">
+        }
+
+        <mat-dialog-actions class="btn">
+            <button mat-button type="reset">Reset</button>
+            @if(exist){
+                <button (click)="updateProduct()" mat-button [mat-dialog-close]="true">Update</button>
+            }@else{
+                <button (click)="addProduct()" mat-button [mat-dialog-close]="true">Add</button>
+            }
+        </mat-dialog-actions>
+    </form>
+</div>

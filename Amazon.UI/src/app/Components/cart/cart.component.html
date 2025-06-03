@@ -1,0 +1,39 @@
+@for (product of products; track $index; let i = $index) {
+    <mat-card>
+        <mat-card-header>
+            <img src="data:image/jpeg;base64,{{ product.images[0].images }}" alt="{{product.title}}">
+
+            <mat-card-content>
+            @if(product.productDetails.discount > 0){
+                <span style="margin-left: 1150px; color: green;">{{product.productDetails.discount}}% off</span><br>
+            }
+
+                {{product.productDetails.description}} <br>
+                <span *ngIf="product.brand">Brand : {{product.brand}} <br></span><br>
+                {{product.rating}}★ <br>
+                In Stock : {{product.productDetails.stock}}
+                @if(product.productDetails.discount > 0){
+                <p style="margin-left: 1150px;color: red; text-decoration: line-through;margin-top: -30px;">${{product.price}}</p>
+                <p style="margin-left: 1150px;color: green;">${{(product.price - (product.price * product.productDetails.discount / 100)).toFixed(2)}}</p>
+                }@else {
+                    <p style="margin-left: 1150px;margin-top: -30px">${{product.price}}</p>
+                }
+                
+                <br>
+                <button mat-raised-button style="color: black; padding-right: 6px;" (click)="removeFromCart(product.productId)"><mat-icon>delete_outline</mat-icon></button>
+
+                <button class="order" mat-raised-button style="color: #eca200;" (click)="Order(product.productId)">Buy Now</button>
+            </mat-card-content>
+        </mat-card-header>
+    </mat-card>
+}
+
+<div style="margin-top: 20px;">
+    <mat-card>
+        <mat-card-content>
+            <strong>Subtotal :</strong> <span style="margin-left: 1300px; text-decoration: line-through;">${{total.toFixed(2)}}</span> <br>
+            <strong>After Discount :</strong> <span style="margin-left: 1255px;"> ${{ subtotal.toFixed(2) }}</span> <br>
+            <button style="margin-left: 1350px; color: #eca200; margin-top: 10px;" mat-raised-button>Buy All</button>
+        </mat-card-content>
+    </mat-card>
+</div>

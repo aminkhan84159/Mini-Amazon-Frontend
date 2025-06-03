@@ -1,0 +1,38 @@
+body{
+    background-color: white;
+}
+
+.container{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 150px;
+    left: 800px;
+    border: 2px solid;
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    background-color: white;
+    border-color: #eca200;
+}
+
+.form{
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+
+.btn button{
+    padding-left: 25px;
+    margin-left: 40px;
+    color: #eca200;
+}
+
+mat-form-field{
+    background-color: white;
+    margin-left: 25px;
+    margin-top: 30px;
+    border-radius: 30px;
+    border: none !important;
+}

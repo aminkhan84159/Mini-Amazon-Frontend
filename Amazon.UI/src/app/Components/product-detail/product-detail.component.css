@@ -1,0 +1,44 @@
+.conatiner{
+  display: flex;
+}
+
+.product-card {
+  max-width: 850px;
+  margin: 20px auto;
+  padding: 15px;
+  margin-top: -630px;
+}
+
+.images {
+  gap: 15px;
+  margin: 10px 0;
+  width: 500px;
+  margin-top: 200px;
+}
+
+.images img {
+  width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.price {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: red;
+  margin-right: 10px;
+}
+
+.discount-price {
+  color: black;
+  font-weight: bold;
+}
+
+.mat-div {
+  margin: 20px 0;
+}

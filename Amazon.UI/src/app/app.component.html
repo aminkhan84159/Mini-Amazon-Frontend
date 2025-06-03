@@ -1,0 +1,19 @@
+<app-navbar (toggleSidenavEvent)="sidenav.toggle()"></app-navbar>
+<mat-sidenav-container class="example-container" autosize [hasBackdrop]="true">
+    <mat-sidenav #sidenav class="example-sidenav" mode="over">
+        <div class="example-sidenav-content">
+            <mat-list role="list">
+                <mat-list-item>
+                    <a mat-raised-button routerLink="/myAccount" (click)="sidenav.toggle()">My Account<mat-icon>person</mat-icon></a>
+                </mat-list-item>
+                <mat-list-item>
+                    <a mat-raised-button routerLink="/order" (click)="sidenav.toggle()">Your Orders <mat-icon>local_shipping</mat-icon></a>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
