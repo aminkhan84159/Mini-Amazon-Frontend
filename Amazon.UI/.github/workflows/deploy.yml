@@ -3,7 +3,7 @@ name: Deploy Angular App to GitHub Pages
 on:
   push:
     branches:
-      - main  # or 'master' if that's your default branch
+      - main
 
 jobs:
   build:
@@ -22,13 +22,13 @@ jobs:
       run: npm install
       working-directory: Amazon.UI
 
-    - name: Build Angular App
-      run: npm run build -- --configuration production
+    - name: Build Angular App with correct baseHref
+      run: npm run build -- --configuration production --base-href /Mini-Amazon-Frontend/
       working-directory: Amazon.UI
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
-        folder: Amazon.UI/dist/Amazon.UI  # ← Replace this with the actual dist folder name
+        folder: Amazon.UI/dist/Amazon.UI
 
