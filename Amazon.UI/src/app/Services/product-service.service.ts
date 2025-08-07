@@ -9,7 +9,7 @@ import { IGetById } from '../Models/GetById.Model';
 })
 export class ProductService {
 
-  mainApi = 'https://localhost:7175/api/';
+  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/';
   http = inject(HttpClient);
 
   public getProducts() {
