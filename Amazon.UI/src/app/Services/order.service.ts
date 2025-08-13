@@ -9,7 +9,7 @@ import { IGetUser } from '../Models/GetUser.Model';
 })
 export class OrderService {
 
-  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/';
+  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/api/';
   http = inject(HttpClient);
 
   public addOrder(order : IOrder){

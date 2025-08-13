@@ -7,7 +7,7 @@ import { IProductDetail } from '../Models/productDetail.Model';
 })
 export class ProductDetailService {
 
-  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/';
+  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/api/';
   http = inject(HttpClient);
 
   public getProductDetails(){

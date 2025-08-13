@@ -1,10 +1,15 @@
 <div class="container">
   <div class="images">
-    <p-carousel [value]="product.images" [numVisible]="1" [numScroll]="1" [circular]="true" autoplayInterval="3000">
-      <ng-template let-pro #item>
-        <img src="data:image/jpeg;base64,{{pro.images}}" alt="{{ product.title }}">
-      </ng-template>
-    </p-carousel>
+    <ng-container *ngIf="product.images?.length > 0">
+      <p-carousel [value]="product.images" [numVisible]="1" [numScroll]="1" [circular]="true" autoplayInterval="3000">
+        <ng-template let-pro #item>
+          <img src="data:image/jpeg;base64,{{pro.images}}" alt="{{ product.title }}">
+        </ng-template>
+      </p-carousel>
+    </ng-container>
+    <ng-container *ngIf="!product.images || product.images.length === 0">
+      <p>No images available.</p>
+    </ng-container>
   </div>
   <mat-card class="product-card">
     <mat-card-header>
@@ -42,14 +47,20 @@
 
       <h4>Customer Reviews</h4>
       <mat-icon mat-list-icon>reviews</mat-icon>
-      <mat-list *ngFor="let review of product.reviews">
-        <mat-list-item >
-          <div>
-            {{ review.reviewerName }} - {{ review.createdOn | date:'yyyy-MM-dd' }}<br />
-            <strong>{{ review.rating }}★</strong> - {{ review.comment }}
-          </div>
-        </mat-list-item>
-      </mat-list>
+      <div *ngIf="product.reviews?.length > 0; else noReviews">
+        <mat-list *ngFor="let review of product.reviews">
+          <mat-list-item>
+            <div>
+              {{ review.reviewerName }} - {{ review.createdOn | date:'yyyy-MM-dd' }}<br />
+              <strong>{{ review.rating }}★</strong> - {{ review.comment }}
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <ng-template #noReviews>
+        <p>No reviews yet.</p>
+      </ng-template>
+      
 
       <mat-divider class="mat-div"></mat-divider>
 

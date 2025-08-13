@@ -9,7 +9,7 @@ import { IGetCartById } from '../Models/GetCartById.Model';
 })
 export class UserCartService {
 
-  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/';
+  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/api/';
   http = inject(HttpClient);
 
   public addToCart(cart: ICart) {

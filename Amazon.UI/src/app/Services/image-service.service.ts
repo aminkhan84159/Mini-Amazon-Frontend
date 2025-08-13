@@ -6,7 +6,7 @@ import { inject, Injectable } from '@angular/core';
 })
 export class ImageService {
 
-  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/';
+  mainApi = 'https://mini-amazon-backend-iu4n.onrender.com/api/';
   http = inject(HttpClient);
 
   public getImages(){

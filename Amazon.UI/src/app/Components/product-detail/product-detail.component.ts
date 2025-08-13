@@ -14,7 +14,8 @@ import { UserCartService } from '../../Services/user-cart.service';
 import { ICart } from '../../Models/Cart.Model';
 import { UserService } from '../../Services/user-service.service';
 import { jwtDecode } from 'jwt-decode';
-import { error } from 'console';
+import { Console, error } from 'console';
+import { ProductDetailService } from '../../Services/product-detail.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -33,6 +34,7 @@ import { error } from 'console';
 export class ProductDetailComponent {
 
   productService = inject(ProductService)
+  productDetailService = inject(ProductDetailService)
   activatedRoute = inject(ActivatedRoute)
   userCartService = inject(UserCartService)
   userService = inject(UserService)
@@ -47,8 +49,8 @@ export class ProductDetailComponent {
   ngOnInit() : void{
     this.productId.productId = this.activatedRoute.snapshot.paramMap.get('productId')
     this.productService.getProductById(this.productId).subscribe((res: any) =>{
-      this.product = res.productDetails
       console.log(res)
+      this.product = res.productDetails
     })
   }
 
