@@ -65,8 +65,21 @@
 
             <p class="btn" style="margin-left: 120px;">
                 <button type="reset" mat-raised-button>Reset</button>
-                <button type="submit" (click)="signup()" mat-raised-button>Sign Up</button>
             </p>
+
+            <div class="btn2" style="display: flex; justify-content: center; margin-top: 24px;">
+                <button mat-raised-button color="primary"
+                        style="margin-right: 16px;"
+                        type="button"
+                        (click)="signupForm.role = 'customer'; signup()">
+                    Sign up as Customer
+                </button>
+                <button mat-raised-button color="accent"
+                        type="button"
+                        (click)="signupForm.role = 'vendor'; signup()">
+                    Sign up as Vendor
+                </button>
+            </div>
 
             <mat-label style="margin-left: 160px;">
                 Already Have an Account? <br>

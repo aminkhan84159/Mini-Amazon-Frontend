@@ -6,4 +6,5 @@ export interface IUser{
     username : string;
     password : string;
     phoneNo : string;
+    role : string;
 }
